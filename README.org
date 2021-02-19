@@ -1,0 +1,17 @@
+* Docker image for building and running React Native Applications
+
+This document implement of [[https://github.com/theanam/react-native-docker][theanam/react-native-docker]].
+
+** Is there anything special
+
+You can mount to the volume without changing the directory permissions.
+
+** How to use
+
+An example:
+
+#+begin_src bash
+docker run --rm -it -v `pwd`:/app -e LOCAL_USER_ID=`id -u` --network host rn-android bash -c "cd android && ./gradlew assembleRelease -x lintVitalRelease"
+#+end_src
+
+`rn-android` is image name.
